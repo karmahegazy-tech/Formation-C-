@@ -45,6 +45,13 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S1_Ex1_ElementaryOperations.cs" />
+    <Compile Include="S1_Ex2_SpeakingClock.cs" />
+    <Compile Include="S1_Ex3_Pyramid.cs" />
+    <Compile Include="S1_Ex4_Factorial.cs" />
+    <Compile Include="S2_Ex1_TasksTables.cs" />
+    <Compile Include="S2_Ex2_Morpion.cs" />
+    <Compile Include="S2_Ex3_Search.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

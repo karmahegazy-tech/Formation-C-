@@ -52,6 +52,11 @@
     <Compile Include="S2_Ex1_TasksTables.cs" />
     <Compile Include="S2_Ex2_Morpion.cs" />
     <Compile Include="S2_Ex3_Search.cs" />
+    <Compile Include="S3_Ex1_AdministrativeTasks.cs" />
+    <Compile Include="S3_Ex2_CesarCode.cs" />
+    <Compile Include="S3_Ex3_MorseCode.cs" />
+    <Compile Include="S4_Ex1_ClassCouncil.cs" />
+    <Compile Include="S4_Ex2_Morpion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

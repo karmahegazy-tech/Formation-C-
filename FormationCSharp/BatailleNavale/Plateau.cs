@@ -32,6 +32,7 @@ namespace Bataille_Navale
             bool ligne_bool = false;
             bool colone_bool = false;
 
+            // Techniquement tu n'as pas besoin de faire cela car c'est fait dans le constructeur
             for (int i = 0; i < PlateauJeu.GetLength(0); i++)
             {
                 for (int j = 0; j < PlateauJeu.GetLength(1); j++)
@@ -41,6 +42,7 @@ namespace Bataille_Navale
             }
             for (int i = 0; i < Bateaux.Count; i++)
             {
+                // Pourquoi tu demandes à l'utilisateur qch ? Il faudrait passer par Random 
                 Console.WriteLine($"Donné la position en x du bateau {Bateaux[i].Nom}");
                 string lectureA = Console.ReadLine();
                 bool bool_x = int.TryParse(lectureA, out int ligne);
@@ -110,11 +112,14 @@ namespace Bataille_Navale
             bool place = true;
 
             //vérifier si le bateau rentre dans le plateau
-            if (estVertical != true && (x + taille) < 11)
+            // Tu es sur que c'est !Vertical et pas Vertical 
+            //if (estVertical != true && (x + taille) < 11)
+            if (estVertical && 10 - x < taille)
             {
                 place = false;
             }
-            if (estVertical != true && (y + taille) > 11)
+            //if (estVertical != true && (y + taille) > 11)
+            if (!estVertical && 10 - y < taille)
             {
                 place = false;
             }
@@ -141,11 +146,12 @@ namespace Bataille_Navale
                 else
                 {
                     // verification de position pour chaque bateau mise en avant
-                    for (int i = 0; i < b ; i++)
+                    for (int i = 0; i < b; i++)
                     {
                         // verification de poisition par rapport a chaque position d'un bateau
                         for (int j = 0; j < taille; j++)
                         {
+                            // C'est vrai, mais il faut penser aussi au fait que les bateaux ne doivent pas être collés.
                             if ((x == Bateaux[i].Positions[j].X) && (y == Bateaux[i].Positions[j].Y))
                             {
                                 place = false;

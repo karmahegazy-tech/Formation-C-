@@ -24,6 +24,8 @@ namespace Bataille_Navale
         /// <param name="y"></param>
         public void Touché(int x, int y)
         {
+            // OK - j'aurai eu tendance à mettre à jour l'état coulé dans cette fonction
+            // mais c'est bon. 
             for (int i = 0; i < Positions.Count; i++)
             {
                 if (Positions[i].X == x && Positions[i].Y == y)
@@ -47,6 +49,7 @@ namespace Bataille_Navale
                     coulé = false;
                 }
             }
+            // Bonne pratique de mettre à jour l'état des cases
             if (coulé == true)
             {
                 for (int i = 0; i < Positions.Count; i++)

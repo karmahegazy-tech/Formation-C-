@@ -5,6 +5,10 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoSemaine1", "ExoSemaine1\ExoSemaine1.csproj", "{8C091398-B867-4049-B3E2-A490FB53B71B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatailleNavale", "BatailleNavale\BatailleNavale.csproj", "{58BCF432-1756-42AE-A01F-C33B9406A17A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Argent1", "Argent1\Argent1\Argent1.csproj", "{B227028D-689E-49C2-A910-94B87AE6EEDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{8C091398-B867-4049-B3E2-A490FB53B71B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C091398-B867-4049-B3E2-A490FB53B71B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C091398-B867-4049-B3E2-A490FB53B71B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58BCF432-1756-42AE-A01F-C33B9406A17A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58BCF432-1756-42AE-A01F-C33B9406A17A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58BCF432-1756-42AE-A01F-C33B9406A17A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58BCF432-1756-42AE-A01F-C33B9406A17A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B227028D-689E-49C2-A910-94B87AE6EEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B227028D-689E-49C2-A910-94B87AE6EEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B227028D-689E-49C2-A910-94B87AE6EEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B227028D-689E-49C2-A910-94B87AE6EEDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

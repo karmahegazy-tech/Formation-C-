@@ -26,7 +26,7 @@ namespace Argent1
                     }
                     sr.Close();
                 }
-            }
+            } 
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Argent1
             Destinataire = destinataire;
             Statut = Etat.KO;
 
-        }
+        } 
         // mettre à jour la transaction après traitement
         public void OK()
         {

@@ -17,7 +17,7 @@ namespace Argent1
         public int indexDes;
         public decimal _Plafond;
     }
-
+     
     internal class Banque
     {
         public List<CarteBancaire> Carte { get; set; }

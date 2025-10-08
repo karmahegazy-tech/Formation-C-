@@ -21,7 +21,7 @@ namespace Argent1
             SoldeInitial = soldeInitial;
         }
         
-        //Verifier si le compte existe 
+        //Verifier si le compte existe
         public bool CompteExiste(int NumCompte)
         {
             if (NumCompte == Identifiant)

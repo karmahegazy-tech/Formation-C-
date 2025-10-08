@@ -14,7 +14,7 @@ namespace Argent1
         public CarteBancaire(long numcarte, decimal Plafond) 
         {
             NumCarte = numcarte;    
-            plafond = Plafond;
+            plafond = Plafond; 
         }
 
         //vérifier si le compte appartient à une carte

@@ -96,6 +96,16 @@ namespace Argent1
                     {
                         phrase[1] = "500";
                     }
+                    
+                    if (decimal.Parse(phrase[1]) < 500 )
+                    {
+                        phrase[1] = "500";
+                    }
+                    else if (decimal.Parse(phrase[1]) > 3000)
+                    {
+                        phrase[1] = "3000";
+                    }
+
                     //IGNIORE : si la carte n'a pas un numéro  
                     if (string.IsNullOrEmpty(phrase[0]))
                     {

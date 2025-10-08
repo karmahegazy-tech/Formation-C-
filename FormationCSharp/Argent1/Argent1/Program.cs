@@ -26,5 +26,5 @@ namespace Argent1
 
             Console.ReadKey();
         }
-    }
+    } 
 }

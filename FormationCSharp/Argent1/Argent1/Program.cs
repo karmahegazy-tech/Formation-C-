@@ -16,7 +16,6 @@ namespace Argent1
             List<CompteBancaire> Compte = entrée.LectureCompte("Comptes.csv");
             List<CarteBancaire> Carte = entrée.LectureCarte("Cartes.csv");
 
-            
             // traitement du fichier
             Banque banque = new Banque(Carte, Compte, transaction);
             banque.MainTraitement();

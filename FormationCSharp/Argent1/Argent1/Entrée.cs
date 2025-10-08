@@ -26,8 +26,13 @@ namespace Argent1
                 {
                     string[] phrase = line.Split(';');
 
-                    transaction.Add(new Transactions(int.Parse(phrase[0]), DateTime.Parse(phrase[1]), Decimal.Parse(phrase[2]), int.Parse(phrase[3]), int.Parse(phrase[4])));
+                    //IGNIORE : si la transaction n'a pas d'expéditeur ou un destinataire
+                    if (string.IsNullOrEmpty(phrase[3]) || string.IsNullOrEmpty(phrase[4]))
+                    {
+                        line = sr.ReadLine();
+                    }
 
+                    transaction.Add(new Transactions(int.Parse(phrase[0]), DateTime.Parse(phrase[1]), Decimal.Parse(phrase[2]), int.Parse(phrase[3]), int.Parse(phrase[4])));
                     line = sr.ReadLine();
                 }
                 sr.Close();
@@ -55,6 +60,12 @@ namespace Argent1
                     {
                         phrase[3] = "0";
                     }
+                    //IGNIORE : si un compte n'a pas de numéro, un type, ou une numéro de carte associé 
+                    if (string.IsNullOrEmpty(phrase[0])|| string.IsNullOrEmpty(phrase[1])|| string.IsNullOrEmpty(phrase[3]))
+                    {
+                        line = sr.ReadLine();
+                    }
+
                     Compte.Add(new CompteBancaire(int.Parse(phrase[0]), long.Parse(phrase[1]), phrase[2], decimal.Parse(phrase[3])));
 
                     line = sr.ReadLine();
@@ -84,6 +95,11 @@ namespace Argent1
                     if (string.IsNullOrEmpty(phrase[1]))
                     {
                         phrase[1] = "500";
+                    }
+                    //IGNIORE : si la carte n'a pas un numéro  
+                    if (string.IsNullOrEmpty(phrase[0]))
+                    {
+                        line = sr.ReadLine();
                     }
 
                     Carte.Add(new CarteBancaire(long.Parse(phrase[0]), decimal.Parse(phrase[1])));

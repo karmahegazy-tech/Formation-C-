@@ -30,7 +30,6 @@ namespace Argent1
         //vérifier si le montant est en dessous du plafond
         public bool PlafondOk(decimal montant)
         {
-            
             if(montant < plafond)
             {
                 return true;

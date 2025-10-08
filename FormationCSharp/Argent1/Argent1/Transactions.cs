@@ -26,6 +26,7 @@ namespace Argent1
             Statut = Etat.KO;
 
         }
+        // mettre à jour la transaction après traitement
         public void OK()
         {
             // donner un statut ok de la transaction

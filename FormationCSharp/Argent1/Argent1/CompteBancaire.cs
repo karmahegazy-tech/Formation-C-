@@ -20,7 +20,7 @@ namespace Argent1
             Type = type;
             SoldeInitial = soldeInitial;
         }
-
+        
         //Verifier si le compte existe 
         public bool CompteExiste(int NumCompte)
         {

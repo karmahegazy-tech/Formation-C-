@@ -80,7 +80,7 @@ namespace Argent1
                     {
                         // verfication des transactions faite pour le compte expediteur 
                         DateTime DateComparé = transaction[i].Horodatage;
-                        if (CumulJours(NumCompte, DateComparé) - (Check(NumCompte, q, montant)._Plafond) < montant)
+                        if ((Check(NumCompte, q, montant)._Plafond - CumulJours(NumCompte, DateComparé)) > montant)
                         {
                             carteExp = Check(NumCompte, q, montant).numcarte;
                             NumCompte = transaction[i].Destinataire;
@@ -125,7 +125,7 @@ namespace Argent1
                     {
                         // verfication des transactions faite pour le compte expediteur 
                         DateTime DateComparé = transaction[i].Horodatage;
-                        if (CumulJours(NumCompte, DateComparé) - (Check(NumCompte, q, montant)._Plafond) < montant)
+                        if ((Check(NumCompte, q, montant)._Plafond - CumulJours(NumCompte, DateComparé)) > montant)
                         {
                             carteExp = Check(NumCompte, q, montant).numcarte;
                             NumCompte = transaction[i].Destinataire;
@@ -161,7 +161,7 @@ namespace Argent1
                     {
                         // verfication des transactions faite pour le compte expediteur 
                         DateTime DateComparé = transaction[i].Horodatage;
-                        if (CumulJours(NumCompte, DateComparé) - (Check(NumCompte, q, montant)._Plafond) < montant)
+                        if ((Check(NumCompte, q, montant)._Plafond - CumulJours(NumCompte, DateComparé)) > montant)
                         {
                             //changement solde Expediteur 
                             operation = "dépôt";
@@ -237,8 +237,9 @@ namespace Argent1
             decimal cumul = 0;
             for (int i = 0; i < transaction.Count; i++)
             {
-                int difference = transaction[i].Horodatage.Day - DateComparé.Day;
-                // si on trouve une transaction avec le même expéditeur, et que la transation soit validée
+                int difference = DateComparé.Day - transaction[i].Horodatage.Day;
+
+                // si on trouve une transaction avec le même expéditeur, que la transation soit validée ett que ca soit moins que 10 jours
                 if ((transaction[i].Expéditeur == NumCompte) && (transaction[i].Statut == Transactions.Etat.OK) && (difference < 10) && (difference > 0) )
                 {
                     cumul += transaction[i].Montant;

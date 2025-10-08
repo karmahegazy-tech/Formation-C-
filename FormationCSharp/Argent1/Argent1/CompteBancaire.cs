@@ -34,7 +34,7 @@ namespace Argent1
         //verifier si le compte peut debiter le montant 
         public bool RetraitOk(decimal montant)
         {
-            if (montant < SoldeInitial)
+            if ((0 < montant) && (montant <= SoldeInitial))
             {
                 return true;
             }

@@ -29,13 +29,6 @@ namespace Or.Business
 
         static readonly string queryUpdateCompte = "UPDATE COMPTE SET Solde=Solde-@Montant WHERE IdtCpt=@IdtCompte";
 
-        public struct MessErreur
-        {
-            public bool Condition;
-            public string message;
-            public decimal type;
-        }
-
         /// <summary>
         /// Obtention des infos d'une carte
         /// </summary>

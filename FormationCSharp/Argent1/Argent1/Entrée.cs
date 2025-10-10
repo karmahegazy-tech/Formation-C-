@@ -26,12 +26,13 @@ namespace Argent1
                 {
                     string[] phrase = line.Split(';');
 
-                    //IGNIORE : si la transaction n'a pas d'expéditeur ou un destinataire
+                    //IGNORE : si la transaction n'a pas d'expéditeur ou un destinataire
                     if (string.IsNullOrEmpty(phrase[3]) || string.IsNullOrEmpty(phrase[4]))
                     {
                         line = sr.ReadLine();
                     }
 
+                    // j'ai peur d'avoir des Parse, préférence pour l'utilisation de TryParse
                     transaction.Add(new Transactions(int.Parse(phrase[0]), DateTime.Parse(phrase[1]), Decimal.Parse(phrase[2]), int.Parse(phrase[3]), int.Parse(phrase[4])));
                     line = sr.ReadLine();
                 }
@@ -39,15 +40,15 @@ namespace Argent1
             }
             return transaction;
         }
-        public List<CompteBancaire> LectureCompte(string Comptes)
+        public List<CompteBancaire> LectureCompte(string fichierComptes)
         {
             // creation d'une liste des comptes
             List<CompteBancaire> Compte = new List<CompteBancaire> { };
 
-            using (FileStream file = new FileStream("Comptes.csv", FileMode.Open, FileAccess.Read))
+            using (FileStream file = new FileStream(fichierComptes, FileMode.Open, FileAccess.Read))
             {
                 //La route de mon fichier input
-                StreamReader sr = new StreamReader(Comptes);
+                StreamReader sr = new StreamReader(fichierComptes);
 
                 //Lecture sequentielle de mon fichier
                 string line = sr.ReadLine();
@@ -60,13 +61,17 @@ namespace Argent1
                     {
                         phrase[3] = "0";
                     }
-                    //IGNIORE : si un compte n'a pas de numéro, un type, ou une numéro de carte associé 
-                    if (string.IsNullOrEmpty(phrase[0])|| string.IsNullOrEmpty(phrase[1])|| string.IsNullOrEmpty(phrase[3]))
+                    //IGNORE : si un compte n'a pas de numéro, un type, ou une numéro de carte associé 
+                    /*if (string.IsNullOrEmpty(phrase[0])|| string.IsNullOrEmpty(phrase[1])|| string.IsNullOrEmpty(phrase[3])) // tu as mis "0" dans phrase[3] de toute façon
                     {
                         line = sr.ReadLine();
-                    }
+                    }*/
 
-                    Compte.Add(new CompteBancaire(int.Parse(phrase[0]), long.Parse(phrase[1]), phrase[2], decimal.Parse(phrase[3])));
+                    // Idée plutôt 
+                    if (!(string.IsNullOrEmpty(phrase[0]) || string.IsNullOrEmpty(phrase[1]) || string.IsNullOrEmpty(phrase[3])))
+                    {
+                        Compte.Add(new CompteBancaire(int.Parse(phrase[0]), long.Parse(phrase[1]), phrase[2], decimal.Parse(phrase[3])));
+                    }
 
                     line = sr.ReadLine();
                 }
@@ -75,15 +80,15 @@ namespace Argent1
             return Compte;
 
         }
-        public List<CarteBancaire> LectureCarte(string Cartes)
+        public List<CarteBancaire> LectureCarte(string fichierCartes)
         {
             // creation d'une liste des cartes
             List<CarteBancaire> Carte = new List<CarteBancaire> { };
 
-            using (FileStream file = new FileStream("Cartes.csv", FileMode.Open, FileAccess.Read))
+            using (FileStream file = new FileStream(fichierCartes, FileMode.Open, FileAccess.Read))
             {
                 //La route de mon fichier input
-                StreamReader sr = new StreamReader(Cartes);
+                StreamReader sr = new StreamReader(fichierCartes);
 
                 //Lecture sequentielle de mon fichier
                 string line = sr.ReadLine();
@@ -96,7 +101,7 @@ namespace Argent1
                     {
                         phrase[1] = "500";
                     }
-                    
+                    // On ne crée pas le compte si le plafond n'est pas entre 500 et 3000
                     if (decimal.Parse(phrase[1]) < 500 )
                     {
                         phrase[1] = "500";

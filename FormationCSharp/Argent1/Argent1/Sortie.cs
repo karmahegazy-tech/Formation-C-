@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Argent1
 {
     internal class Sortie
     {
-        public void CreationSortie(List<Transactions> Transaction)
+        // Ajout de fichierSortie 
+        public void CreationSortie(string fichierSortie, List<Transactions> Transaction)
         {
-            using (FileStream file = new FileStream("Sortie.csv", FileMode.Create, FileAccess.Write))
+            using (FileStream file = new FileStream(fichierSortie, FileMode.Create, FileAccess.Write))
             {
                 using (StreamWriter sr = new StreamWriter(file))
                 {

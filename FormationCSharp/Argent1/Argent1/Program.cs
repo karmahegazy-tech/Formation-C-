@@ -22,7 +22,7 @@ namespace Argent1
 
             // creation du fichier sortie et son alimentation
             Sortie sortie = new Sortie();
-            sortie.CreationSortie(transaction);
+            sortie.CreationSortie("Sortie.csv", transaction);
 
             Console.ReadKey();
         }

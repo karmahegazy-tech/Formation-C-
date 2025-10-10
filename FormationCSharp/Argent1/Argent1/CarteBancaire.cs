@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Argent1
+﻿namespace Argent1
 {
     internal class CarteBancaire
     {
@@ -20,6 +14,8 @@ namespace Argent1
         //vérifier si le compte appartient à une carte
         public bool CarteExiste(long NumCarte_cb)
         {
+            // Tu peux même faire plus simple 
+            // return NumCarte_cb == NumCarte;
             if (NumCarte_cb == NumCarte)
             {
                 return true;
@@ -30,7 +26,7 @@ namespace Argent1
         //vérifier si le montant est en dessous du plafond
         public bool PlafondOk(decimal montant)
         {
-            if((montant < plafond) && (0< montant))
+            if ((montant < plafond) && (0 < montant))
             {
                 return true;
             }

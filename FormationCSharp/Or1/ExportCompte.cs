@@ -1,0 +1,40 @@
+﻿using Or.Business;
+using Or.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+
+namespace Or
+{
+    [XmlRoot]
+    public class ExportComptes
+    {
+        [XmlArray("Comptes")]
+        [XmlArrayItem("Compte", typeof(ExportCompte))]
+        public List<ExportCompte> Comptes { get; set; }
+
+    }
+
+    [XmlType("Compte")]
+    public class ExportCompte
+    {
+        [XmlElement("Identifiant")]
+        public int ID { get; set; }
+
+        [XmlElement("Type")]
+        public TypeCompte TypeDuCompte { get; set; }
+
+        [XmlElement("Solde")]
+        public string solde { get; set; }
+
+        [XmlArray("Transactions")]
+        [XmlArrayItem("Transaction", typeof(ExportTransaction))]
+        public List<ExportTransaction> Transactions { get; set; }
+    }
+}
+
+
+

@@ -29,8 +29,8 @@ namespace Bataille_Navale
         public void CreationPlateau()
         {
             bool positionnement = false;
-            bool ligne_bool = false;
-            bool colone_bool = false;
+            //bool ligne_bool = false;
+            //bool colone_bool = false;
 
             // Techniquement tu n'as pas besoin de faire cela car c'est fait dans le constructeur
             for (int i = 0; i < PlateauJeu.GetLength(0); i++)

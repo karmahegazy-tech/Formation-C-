@@ -192,5 +192,28 @@ namespace Or.Models
             return messErreur;
         }
 
+        public decimal SoldeCarteActuel(DateTime date)
+        {
+            DateTime d = date.AddDays(-10);
+            decimal plafond = Plafond;
+            AlimenterHistoriqueEtListeComptes(SqlRequests.ListeTransactionsAssociesCarte(Id), ListComptesId);
+            List<Compte> liste = SqlRequests.ListeComptesAssociesCarte(Id);
+            Compte c = liste.Find(n => n.TypeDuCompte == TypeCompte.Courant);
+            foreach (Transaction t in Historique)
+            {
+                if ((t.TypeTransaction == "Virement" && (liste.Find(cpt => cpt.Id == t.Expediteur) != null) || t.TypeTransaction == "Retrait") && t.Horodatage >= d && t.Horodatage <= date)
+                {
+                    plafond -= t.Montant;
+                }
+            }
+
+            if (plafond >= c.Solde)
+            {
+                return c.Solde;
+            }
+            return plafond;
+
+        }
+
     }
 }

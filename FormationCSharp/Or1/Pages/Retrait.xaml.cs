@@ -35,7 +35,7 @@ namespace Or.Pages
 
             //Rajouter le cumul de retrait sur les derniers 10 jours sur la case 
             decimal.TryParse(Montant.Text.Replace(".", ",").Trim(new char[] { '€', ' ' }), out decimal montant);
-            PlafondCumulRetrait.Text = CartePorteur.EstEligibleMaximumRetraitHebdomadaire(montant, DateTime.Now).type.ToString("C2");
+            PlafondCumulRetrait.Text = CartePorteur.SoldeCarteActuel(DateTime.Now).ToString();//CartePorteur.EstEligibleMaximumRetraitHebdomadaire(montant, DateTime.Now).type.ToString("C2");
         }
 
         private void Retour_Click(object sender, RoutedEventArgs e)

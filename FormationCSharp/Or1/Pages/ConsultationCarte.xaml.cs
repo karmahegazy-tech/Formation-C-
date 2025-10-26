@@ -66,12 +66,12 @@ namespace Or.Pages
         {
             ExportComptes comptes = new ExportComptes();
             comptes.Comptes = new List<ExportCompte>();
-            for (int i = 0; i < SqlRequests.ListeComptesAssociesCarte(1234567890123456).Count; i++)
+            for (int i = 0; i < SqlRequests.ListeComptesAssociesCarte(long.Parse(Numero.Text)).Count; i++)
             {
                 ExportCompte exportcompte = new ExportCompte();
-                exportcompte.ID = SqlRequests.ListeComptesAssociesCarte(1234567890123456)[i].Id;
-                exportcompte.TypeDuCompte = SqlRequests.ListeComptesAssociesCarte(1234567890123456)[i].TypeDuCompte;
-                exportcompte.solde = $"{SqlRequests.ListeComptesAssociesCarte(1234567890123456)[i].Solde: 00.00} €";
+                exportcompte.ID = SqlRequests.ListeComptesAssociesCarte(long.Parse(Numero.Text))[i].Id;
+                exportcompte.TypeDuCompte = SqlRequests.ListeComptesAssociesCarte(long.Parse(Numero.Text))[i].TypeDuCompte;
+                exportcompte.solde = $"{SqlRequests.ListeComptesAssociesCarte(long.Parse(Numero.Text))[i].Solde:00.00} €";
 
 
                 exportcompte.Transactions = new List<ExportTransaction>();
@@ -79,8 +79,8 @@ namespace Or.Pages
                 {
                     ExportTransaction exporttransaction = new ExportTransaction();
                     exporttransaction.IdTransaction = SqlRequests.ListeTransactionsAssociesCompte(exportcompte.ID)[j].IdTransaction;
-                    exporttransaction.Horodatage = SqlRequests.ListeTransactionsAssociesCompte(exportcompte.ID)[j].Horodatage.ToString("dd/MM/ yyyy HH:mm:ss tt");
-                    exporttransaction.Montant = $"{SqlRequests.ListeTransactionsAssociesCompte(exportcompte.ID)[j].Montant: 00.00} €";
+                    exporttransaction.Horodatage = SqlRequests.ListeTransactionsAssociesCompte(exportcompte.ID)[j].Horodatage.ToString("dd/MM/yyyy HH:mm:ss");
+                    exporttransaction.Montant = $"{SqlRequests.ListeTransactionsAssociesCompte(exportcompte.ID)[j].Montant:00.00} €";
                     if (SqlRequests.ListeTransactionsAssociesCompte(exportcompte.ID)[j].Expediteur != 0)
                     {
                         exporttransaction.Expediteur = SqlRequests.ListeTransactionsAssociesCompte(exportcompte.ID)[j].Expediteur.ToString();

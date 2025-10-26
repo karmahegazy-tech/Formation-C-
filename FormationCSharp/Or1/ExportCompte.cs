@@ -1,19 +1,13 @@
-﻿using Or.Business;
-using Or.Models;
-using System;
+﻿using Or.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Or
 {
-    [XmlRoot]
+    [XmlRoot("Comptes")]
     public class ExportComptes
     {
-        [XmlArray("Comptes")]
-        [XmlArrayItem("Compte", typeof(ExportCompte))]
+        [XmlElement("Compte", typeof(ExportCompte))]
         public List<ExportCompte> Comptes { get; set; }
 
     }
